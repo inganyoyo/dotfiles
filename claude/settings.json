@@ -1,4 +1,8 @@
 {
+  "statusLine": {
+    "type": "command",
+    "command": "bash $HOME/.claude/statusline-command.sh"
+  },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
       "source": {
@@ -8,8 +12,5 @@
     }
   },
   "theme": "dark",
-  "statusLine": {
-    "type": "command",
-    "command": "bash $HOME/.claude/statusline-command.sh"
-  }
+  "skipDangerousModePermissionPrompt": true
 }

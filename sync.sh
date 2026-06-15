@@ -1,8 +1,13 @@
 #!/bin/bash
 DIR="$(cd "$(dirname "$0")" && pwd)"
 
+# Sync Claude Code settings
 cp ~/.claude/settings.json "$DIR/claude/settings.json"
 cp ~/.claude/statusline-command.sh "$DIR/claude/statusline-command.sh"
+
+# Sync Antigravity settings
+cp ~/.gemini/antigravity-cli/settings.json "$DIR/antigravity/settings.json"
+cp ~/.gemini/antigravity-cli/scratch/statusline-antigravity.sh "$DIR/antigravity/statusline-antigravity.sh"
 
 cd "$DIR"
 git add .

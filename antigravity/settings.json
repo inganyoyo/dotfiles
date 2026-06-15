@@ -1,0 +1,9 @@
+{
+  "colorScheme": "tokyo night",
+  "enableTelemetry": false,
+  "statusLine": {
+    "type": "command",
+    "command": "bash $HOME/.gemini/antigravity-cli/scratch/statusline-antigravity.sh",
+    "enabled": true
+  }
+}
