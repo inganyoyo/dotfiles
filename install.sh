@@ -13,4 +13,7 @@ cp "$DIR/antigravity/settings.json" ~/.gemini/antigravity-cli/settings.json
 cp "$DIR/antigravity/statusline-antigravity.sh" ~/.gemini/antigravity-cli/scratch/statusline-antigravity.sh
 chmod +x ~/.gemini/antigravity-cli/scratch/statusline-antigravity.sh
 
+# Install zsh settings
+cp "$DIR/zsh/p10k.zsh" ~/.p10k.zsh
+
 echo "Done."

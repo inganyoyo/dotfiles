@@ -9,6 +9,9 @@ cp ~/.claude/statusline-command.sh "$DIR/claude/statusline-command.sh"
 cp ~/.gemini/antigravity-cli/settings.json "$DIR/antigravity/settings.json"
 cp ~/.gemini/antigravity-cli/scratch/statusline-antigravity.sh "$DIR/antigravity/statusline-antigravity.sh"
 
+# Sync zsh settings
+cp ~/.p10k.zsh "$DIR/zsh/p10k.zsh"
+
 cd "$DIR"
 git add .
 
