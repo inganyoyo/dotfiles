@@ -18,10 +18,47 @@ mkdir -p ~/.codex
 CODEX_CONFIG=~/.codex/config.toml
 CODEX_CONFIG_TMP="$(mktemp)"
 if [ -f "$CODEX_CONFIG" ]; then
-  grep -v -E '^(status_line|status_line_use_colors) =' "$CODEX_CONFIG" > "$CODEX_CONFIG_TMP"
+  awk -v status_file="$DIR/codex/config.toml" '
+    function print_status() {
+      while ((getline status_line < status_file) > 0) {
+        print status_line
+      }
+      close(status_file)
+    }
+    /^\[tui\]$/ {
+      if (!inserted) {
+        print
+        print_status()
+        inserted = 1
+      }
+      next
+    }
+    /^status_line =/ {
+      if ($0 !~ /\]$/) {
+        while ((getline line) > 0) {
+          if (line ~ /^\]$/) {
+            break
+          }
+        }
+      }
+      next
+    }
+    /^status_line_use_colors =/ {
+      next
+    }
+    { print }
+    END {
+      if (!inserted) {
+        print ""
+        print "[tui]"
+        print_status()
+      }
+    }
+  ' "$CODEX_CONFIG" > "$CODEX_CONFIG_TMP"
+else
+  printf '[tui]\n' > "$CODEX_CONFIG_TMP"
+  cat "$DIR/codex/config.toml" >> "$CODEX_CONFIG_TMP"
 fi
-printf '\n' >> "$CODEX_CONFIG_TMP"
-cat "$DIR/codex/config.toml" >> "$CODEX_CONFIG_TMP"
 cp "$CODEX_CONFIG_TMP" "$CODEX_CONFIG"
 rm "$CODEX_CONFIG_TMP"
 

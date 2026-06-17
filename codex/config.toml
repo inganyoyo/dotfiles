@@ -1,2 +1,2 @@
-status_line = ["current-dir", "git-branch", "pull-request-number", "branch-changes", "model-with-reasoning", "five-hour-limit", "weekly-limit", "context-used", "used-tokens", "task-progress"]
+status_line = ["current-dir", "git-branch", "branch-changes", "model-with-reasoning", "five-hour-limit", "weekly-limit", "context-used"]
 status_line_use_colors = true

@@ -11,7 +11,31 @@ cp ~/.gemini/antigravity-cli/scratch/statusline-antigravity.sh "$DIR/antigravity
 
 # Sync Codex status line settings only
 mkdir -p "$DIR/codex"
-grep -E '^(status_line|status_line_use_colors) =' ~/.codex/config.toml > "$DIR/codex/config.toml"
+awk '
+  /^\[tui\]$/ {
+    in_tui = 1
+    printed_header = 0
+    next
+  }
+  /^\[/ {
+    in_tui = 0
+  }
+  in_tui && /^status_line =/ {
+    print
+    if ($0 !~ /\]$/) {
+      while ((getline line) > 0) {
+        print line
+        if (line ~ /^\]$/) {
+          break
+        }
+      }
+    }
+    next
+  }
+  in_tui && /^status_line_use_colors =/ {
+    print
+  }
+' ~/.codex/config.toml > "$DIR/codex/config.toml"
 
 # Sync zsh settings
 cp ~/.p10k.zsh "$DIR/zsh/p10k.zsh"
