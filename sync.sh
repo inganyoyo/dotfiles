@@ -9,6 +9,10 @@ cp ~/.claude/statusline-command.sh "$DIR/claude/statusline-command.sh"
 cp ~/.gemini/antigravity-cli/settings.json "$DIR/antigravity/settings.json"
 cp ~/.gemini/antigravity-cli/scratch/statusline-antigravity.sh "$DIR/antigravity/statusline-antigravity.sh"
 
+# Sync Codex status line settings only
+mkdir -p "$DIR/codex"
+grep -E '^(status_line|status_line_use_colors) =' ~/.codex/config.toml > "$DIR/codex/config.toml"
+
 # Sync zsh settings
 cp ~/.p10k.zsh "$DIR/zsh/p10k.zsh"
 
