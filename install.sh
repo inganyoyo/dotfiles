@@ -6,15 +6,20 @@ mkdir -p ~/.claude
 cp "$DIR/claude/settings.json" ~/.claude/settings.json
 cp "$DIR/claude/statusline-command.sh" ~/.claude/statusline-command.sh
 chmod +x ~/.claude/statusline-command.sh
+cp "$DIR/claude/CLAUDE.md" ~/.claude/CLAUDE.md
 
 # Install Antigravity settings
 mkdir -p ~/.gemini/antigravity-cli/scratch
 cp "$DIR/antigravity/settings.json" ~/.gemini/antigravity-cli/settings.json
 cp "$DIR/antigravity/statusline-antigravity.sh" ~/.gemini/antigravity-cli/scratch/statusline-antigravity.sh
 chmod +x ~/.gemini/antigravity-cli/scratch/statusline-antigravity.sh
+cp "$DIR/antigravity/GEMINI.md" ~/.gemini/GEMINI.md
+
+# Install Codex instructions
+mkdir -p ~/.codex
+cp "$DIR/codex/AGENTS.md" ~/.codex/AGENTS.md
 
 # Install Codex status line settings without replacing the rest of config.toml
-mkdir -p ~/.codex
 CODEX_CONFIG=~/.codex/config.toml
 CODEX_CONFIG_TMP="$(mktemp)"
 if [ -f "$CODEX_CONFIG" ]; then

@@ -1,9 +1,43 @@
 {
   "colorScheme": "tokyo night",
   "enableTelemetry": false,
+  "permissions": {
+    "allow": [
+      "command(cat \u003c\u003c'EOF' \u003egenerate_csv.py)"
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "bash $HOME/.gemini/antigravity-cli/scratch/statusline-antigravity.sh",
     "enabled": true
-  }
+  },
+  "trustedWorkspaces": [
+    "/Users/juhyunlee/Dev/AI_PROJECT",
+    "/Users/juhyunlee/llm_wiki/ai_exam/exam/exam01/agy",
+    "/Users/juhyunlee/llm_wiki/ai_exam/exam/exam02/agy",
+    "/Users/juhyunlee/llm_wiki/ai_exam/exam/exam03/agy",
+    "/Users/juhyunlee/Dev/anti",
+    "/Volumes/config",
+    "/Users/juhyunlee/Kids/english",
+    "/Users/juhyunlee/Dev/codex",
+    "/Users/juhyunlee/Dev/toss_invest",
+    "/Users/juhyunlee/orca/workspaces/toss_invest/agy-review-task-1",
+    "/Users/juhyunlee/orca/workspaces/toss_invest/agy-review-task-2",
+    "/Users/juhyunlee/orca/workspaces/toss_invest/agy-task-3",
+    "/Users/juhyunlee/orca/workspaces/toss_invest/agy-review-task-4",
+    "/Users/juhyunlee/orca/workspaces/toss_invest/agy-fix-task-4",
+    "/Users/juhyunlee/orca/workspaces/toss_invest/agy-review-task-5",
+    "/Users/juhyunlee/orca/workspaces/toss_invest/agy-task-6",
+    "/Users/juhyunlee/orca/workspaces/toss_invest/agy-review-task-6",
+    "/Users/juhyunlee/orca/workspaces/toss_invest/agy-task-6b-review",
+    "/Users/juhyunlee/orca/workspaces/toss_invest/agy-task-7-review",
+    "/Users/juhyunlee/orca/workspaces/toss_invest/agy-task-8-review",
+    "/Users/juhyunlee/orca/workspaces/toss_invest/agy-task-9-review",
+    "/Users/juhyunlee/orca/workspaces/toss_invest/agy-task-9-retry",
+    "/Users/juhyunlee/orca/workspaces/toss_invest/agy-final-audit",
+    "/Users/juhyunlee/orca/workspaces/toss_invest/agy-review-icon-and-actions",
+    "/Users/juhyunlee/Dev/claude",
+    "/Users/juhyunlee/Dev/blog",
+    "/Users/juhyunlee/orca/workspaces/toss_invest/jormungandr"
+  ]
 }
