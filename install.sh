@@ -79,7 +79,7 @@ rm "$CODEX_CONFIG_TMP"
 # Install the SessionStart env-injection hook config (idempotent append)
 # __HOME__ is a portable placeholder substituted with this machine's actual
 # $HOME, since TOML has no native env-var expansion.
-if ! grep -qF '[[hooks.SessionStart]]' "$CODEX_CONFIG"; then
+if ! grep -qF '.codex/hooks/session-start-env.sh' "$CODEX_CONFIG"; then
   printf '\n' >> "$CODEX_CONFIG"
   sed "s|__HOME__|$HOME|g" "$DIR/codex/config-hooks.toml" >> "$CODEX_CONFIG"
 fi
