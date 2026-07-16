@@ -46,11 +46,12 @@ awk '
   }
 ' ~/.codex/config.toml > "$DIR/codex/config.toml"
 
-# Sync the SessionStart hook block (installed at EOF; capture from its marker to EOF)
+# Sync the SessionStart hook block (installed at EOF; capture from its marker to EOF),
+# replacing this machine's $HOME back with the portable __HOME__ placeholder.
 awk '
   /^\[\[hooks\.SessionStart\]\]$/ { capturing = 1 }
   capturing { print }
-' ~/.codex/config.toml > "$DIR/codex/config-hooks.toml"
+' ~/.codex/config.toml | sed "s|$HOME|__HOME__|g" > "$DIR/codex/config-hooks.toml"
 
 # Sync zsh settings
 cp ~/.p10k.zsh "$DIR/zsh/p10k.zsh"

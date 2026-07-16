@@ -3,6 +3,6 @@ matcher = "startup|resume|clear|compact"
 
 [[hooks.SessionStart.hooks]]
 type = "command"
-command = "/Users/juhyunlee/.codex/hooks/session-start-env.sh"
+command = "__HOME__/.codex/hooks/session-start-env.sh"
 timeout = 5
 statusMessage = "Loading agent runtime context"
