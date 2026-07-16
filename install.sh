@@ -2,8 +2,10 @@
 DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # Install Claude Code settings
+# __HOME__ is a portable placeholder substituted with this machine's actual
+# $HOME (used by Orca's own injected hook paths in settings.json).
 mkdir -p ~/.claude/hooks
-cp "$DIR/claude/settings.json" ~/.claude/settings.json
+sed "s|__HOME__|$HOME|g" "$DIR/claude/settings.json" > ~/.claude/settings.json
 cp "$DIR/claude/statusline-command.sh" ~/.claude/statusline-command.sh
 chmod +x ~/.claude/statusline-command.sh
 cp "$DIR/claude/CLAUDE.md" ~/.claude/CLAUDE.md
@@ -16,7 +18,7 @@ cp "$DIR/antigravity/settings.json" ~/.gemini/antigravity-cli/settings.json
 cp "$DIR/antigravity/statusline-antigravity.sh" ~/.gemini/antigravity-cli/scratch/statusline-antigravity.sh
 chmod +x ~/.gemini/antigravity-cli/scratch/statusline-antigravity.sh
 cp "$DIR/antigravity/GEMINI.md" ~/.gemini/GEMINI.md
-cp "$DIR/antigravity/hooks.json" ~/.gemini/config/hooks.json
+sed "s|__HOME__|$HOME|g" "$DIR/antigravity/hooks.json" > ~/.gemini/config/hooks.json
 cp "$DIR/antigravity/hooks/pre-invocation-env.sh" ~/.gemini/hooks/pre-invocation-env.sh
 chmod +x ~/.gemini/hooks/pre-invocation-env.sh
 

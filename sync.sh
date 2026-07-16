@@ -1,8 +1,8 @@
 #!/bin/bash
 DIR="$(cd "$(dirname "$0")" && pwd)"
 
-# Sync Claude Code settings
-cp ~/.claude/settings.json "$DIR/claude/settings.json"
+# Sync Claude Code settings (replace this machine's $HOME back with __HOME__)
+sed "s|$HOME|__HOME__|g" ~/.claude/settings.json > "$DIR/claude/settings.json"
 cp ~/.claude/statusline-command.sh "$DIR/claude/statusline-command.sh"
 cp ~/.claude/CLAUDE.md "$DIR/claude/CLAUDE.md"
 mkdir -p "$DIR/claude/hooks"
@@ -13,7 +13,7 @@ cp ~/.gemini/antigravity-cli/settings.json "$DIR/antigravity/settings.json"
 cp ~/.gemini/antigravity-cli/scratch/statusline-antigravity.sh "$DIR/antigravity/statusline-antigravity.sh"
 cp ~/.gemini/GEMINI.md "$DIR/antigravity/GEMINI.md"
 mkdir -p "$DIR/antigravity/hooks"
-cp ~/.gemini/config/hooks.json "$DIR/antigravity/hooks.json"
+sed "s|$HOME|__HOME__|g" ~/.gemini/config/hooks.json > "$DIR/antigravity/hooks.json"
 cp ~/.gemini/hooks/pre-invocation-env.sh "$DIR/antigravity/hooks/pre-invocation-env.sh"
 
 # Sync Codex status line settings and instructions
